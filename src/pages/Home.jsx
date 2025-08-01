@@ -1,6 +1,7 @@
 import React from 'react';
 import Catagory from './Catagory';
 import Random from './Random';
+import IngredientAnimation from './IngredientAnimation';
 
 const Home = () => {
   return (
@@ -10,7 +11,9 @@ const Home = () => {
       <section className="mb-8">
         <Random />
       </section>
-
+<section>
+  <IngredientAnimation />
+</section>
       <section>
         <Catagory />
       </section>
