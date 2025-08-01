@@ -25,15 +25,15 @@ function Catagory() {
   }, [name]);
 
   return (
-    <div className="p-10 bg-white min-h-screen">
+    <div className="p-10 bg-white min-h-screen bg-yellow-200 flex justify-center flex-col">
       {!name ? (
         <>
-          <h1 className="text-4xl font-bold mb-8">
+          <h1 className="text-4xl flex justify-center font-bold mb-8">
             <span className="text-gray-900">We Serve </span>
             <span className="text-orange-500">Delicious Food</span>
           </h1>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 ">
             {categories.map((cat) => (
               <div
                 key={cat.idCategory}
@@ -54,7 +54,7 @@ function Catagory() {
         <>
           <button
             onClick={() => navigate('/catagory')}
-            className="mb-6 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
+            className="mb-6 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition w-50"
           >
             ⬅ Back to Categories
           </button>
