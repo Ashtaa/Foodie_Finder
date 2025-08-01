@@ -1,9 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import MealDetail from './MealDetail'; // import your detail component
 
 function Random() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [selectedMealId, setSelectedMealId] = useState(null);
 
   const generate = () => {
     setLoading(true);
@@ -17,6 +19,16 @@ function Random() {
         setLoading(false);
       });
   };
+
+  // If a meal is selected, show MealDetail component instead of the list
+  if (selectedMealId) {
+    return (
+      <MealDetail 
+        mealId={selectedMealId} 
+        onBack={() => setSelectedMealId(null)} 
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center p-8">
@@ -35,7 +47,9 @@ function Random() {
       {data.map((item) => (
         <div
           key={item.idMeal}
-          className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md text-center border border-gray-100"
+          onClick={() => setSelectedMealId(item.idMeal)}
+          className="bg-white rounded-2xl shadow-xl p-6 w-full max-w-md text-center border border-gray-100 cursor-pointer hover:shadow-2xl transition"
+          title="Click to see details"
         >
           <h2 className="text-2xl font-semibold text-gray-800 mb-3">
             {item.strMeal}
