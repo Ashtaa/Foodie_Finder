@@ -71,10 +71,10 @@ function Catagory() {
       ) : (
         <>
           <button
-            onClick={() => navigate('/catagory')}
+            onClick={() => navigate('/')}
             className="mb-6 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition w-50"
           >
-            ⬅ Back to Categories
+            ⬅ Back to Home
           </button>
 
           <h1 className="text-3xl font-bold text-gray-900 mb-8">
