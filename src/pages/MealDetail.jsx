@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Play } from "lucide-react";
 
 const MealDetail = ({ mealId }) => {
@@ -7,11 +8,10 @@ const MealDetail = ({ mealId }) => {
   useEffect(() => {
     if (!mealId) return; // If no ID, don't fetch
 
-    // Fetch meal by ID
-    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
-      .then((res) => res.json())
-      .then((data) => {
-        const mealData = data.meals[0];
+    axios
+      .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+      .then((response) => {
+        const mealData = response.data.meals[0];
 
         // Combine ingredients and measurements
         const ingredients = [];
@@ -27,6 +27,9 @@ const MealDetail = ({ mealId }) => {
         }
 
         setMeal({ ...mealData, ingredients });
+      })
+      .catch((error) => {
+        console.error("Error fetching meal detail:", error);
       });
   }, [mealId]);
 
