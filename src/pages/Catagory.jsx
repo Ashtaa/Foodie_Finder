@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
+import MealDetail from './MealDetail'
 
 function Catagory() {
   const [categories, setCategories] = useState([]);
   const [meals, setMeals] = useState([]);
   const { name } = useParams();
   const navigate = useNavigate();
+
+  const [selectedMealId, setSelectedMealId] = useState(null);
 
   useEffect(() => {
     axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
@@ -23,6 +26,21 @@ function Catagory() {
       setMeals([]);
     }
   }, [name]);
+
+  // If a meal is selected, render MealDetail
+  if (selectedMealId) {
+    return (
+      <div className="p-10 bg-white min-h-screen">
+        <button
+          onClick={() => setSelectedMealId(null)}
+          className="mb-6 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
+        >
+          ⬅ Back to {name ? `Meals in ${name}` : 'Categories'}
+        </button>
+        <MealDetail mealId={selectedMealId} />
+      </div>
+    );
+  }
 
   return (
     <div className="p-10 bg-white min-h-screen bg-yellow-200 flex justify-center flex-col">
@@ -67,7 +85,9 @@ function Catagory() {
             {meals.map((meal) => (
               <div
                 key={meal.idMeal}
-                className="bg-white rounded-2xl shadow-lg p-4 text-center border border-gray-100 hover:scale-105 transition transform"
+                onClick={() => setSelectedMealId(meal.idMeal)}  // Set selected meal here
+                className="bg-white rounded-2xl shadow-lg p-4 text-center border border-gray-100 hover:scale-105 transition transform cursor-pointer"
+                title="Click for meal details"
               >
                 <img
                   src={meal.strMealThumb}
