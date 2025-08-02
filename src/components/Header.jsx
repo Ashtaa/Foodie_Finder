@@ -1,4 +1,5 @@
 // Header.jsx
+import { Link } from "react-router-dom";
 import Logo from "../assets/logo.jpg";
 import SearchBar from './SearchBar';
 import React from 'react';
@@ -15,8 +16,12 @@ function Header() {
           />
         </div>
         <ul className="flex gap-6 font-medium text-gray-700">
-          <li className="cursor-pointer hover:text-orange-500">Home</li>
-          <li className="cursor-pointer hover:text-orange-500">Meals</li>
+          <li className="cursor-pointer hover:text-orange-500">
+            <Link to="/">Home</Link></li>
+         <li className="cursor-pointer hover:text-orange-500">
+          <Link to="/catagory">Categories</Link>
+        </li>
+
           <li className="cursor-pointer hover:text-orange-500">About Us</li>
         </ul>
         <div className="p-6">

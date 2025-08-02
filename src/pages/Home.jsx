@@ -3,7 +3,8 @@ import Catagory from './Catagory';
 import Random from './Random';
 import IngredientAnimation from './IngredientAnimation';
 import Header from '../components/Header';
-import HeroPage from '../components/HeroPage';
+import HeroPage from './HeroPage';
+
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <section>
         <Catagory />
       </section>
+      
     </div>
   );
 };
