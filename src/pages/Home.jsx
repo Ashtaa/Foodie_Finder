@@ -8,7 +8,7 @@ import HeroPage from '../components/HeroPage';
 const Home = () => {
   return (
     <div className="">
-      <Header/>
+     
       <HeroPage/>
       
       <section className="mb-8">

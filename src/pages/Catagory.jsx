@@ -71,7 +71,7 @@ function Catagory() {
       ) : (
         <>
           <button
-            onClick={() => navigate('/catagory')}
+            onClick={() => navigate('/')}
             className="mb-6 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
           >
             ⬅ Back to Categories
