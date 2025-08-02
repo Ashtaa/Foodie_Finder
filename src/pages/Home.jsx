@@ -2,21 +2,26 @@ import React from 'react';
 import Catagory from './Catagory';
 import Random from './Random';
 import IngredientAnimation from './IngredientAnimation';
+import Header from '../components/Header';
+import HeroPage from './HeroPage';
+
 
 const Home = () => {
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Welcome to Foodie Finder 🍽️</h1>
+    <div className="">
+     
+      <HeroPage/>
       
       <section className="mb-8">
         <Random />
       </section>
-<section>
-  <IngredientAnimation />
-</section>
+      <section>
+        <IngredientAnimation />
+      </section>
       <section>
         <Catagory />
       </section>
+      
     </div>
   );
 };
