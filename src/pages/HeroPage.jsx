@@ -32,7 +32,7 @@ const Hero = () => {
         </button>
       </div>
 
-      {/* Right Image */}
+      
       <div className="md:w-1/2 mt-10 md:mt-0 relative z-10">
         <div className="rounded-full bg-white w-[250px] md:w-[350px] h-[250px] md:h-[350px] mx-auto relative shadow-xl">
           <img
