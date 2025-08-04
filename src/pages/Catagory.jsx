@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
-import MealDetail from './MealDetail'
+import MealDetail from './MealDetail';
 
 function Catagory() {
   const [categories, setCategories] = useState([]);
   const [meals, setMeals] = useState([]);
+  const [showAll, setShowAll] = useState(false);
   const { name } = useParams();
   const navigate = useNavigate();
-
   const [selectedMealId, setSelectedMealId] = useState(null);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ function Catagory() {
     }
   }, [name]);
 
-  // If a meal is selected, render MealDetail
+  // Show meal detail
   if (selectedMealId) {
     return (
       <div className="p-10 bg-white min-h-screen">
@@ -43,16 +43,16 @@ function Catagory() {
   }
 
   return (
-    <div className="p-10 bg-white min-h-screen">
+    <div className="p-10 bg-yellow-100 min-h-screen">
       {!name ? (
         <>
-          <h1 className="text-4xl font-bold mb-8">
+          <h1 className="text-4xl text-center font-bold mb-8">
             <span className="text-gray-900">We Serve </span>
             <span className="text-orange-500">Delicious Food</span>
           </h1>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {categories.map((cat) => (
+            {(showAll ? categories : categories.slice(0, 4)).map((cat) => (
               <div
                 key={cat.idCategory}
                 onClick={() => navigate(`/catagory/${cat.strCategory}`)}
@@ -67,11 +67,23 @@ function Catagory() {
               </div>
             ))}
           </div>
+
+          {/* Toggle Button */}
+          {!showAll && (
+            <div className="mt-6 text-center">
+              <button
+                onClick={() => setShowAll(true)}
+                className="px-6 py-3 bg-orange-500 text-white font-medium rounded-full hover:bg-orange-600 transition"
+              >
+                View All Categories
+              </button>
+            </div>
+          )}
         </>
       ) : (
         <>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/catagory')}
             className="mb-6 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
           >
             ⬅ Back to Categories
@@ -85,9 +97,8 @@ function Catagory() {
             {meals.map((meal) => (
               <div
                 key={meal.idMeal}
-                onClick={() => setSelectedMealId(meal.idMeal)}  // Set selected meal here
+                onClick={() => setSelectedMealId(meal.idMeal)}
                 className="bg-white rounded-2xl shadow-lg p-4 text-center border border-gray-100 hover:scale-105 transition transform cursor-pointer"
-                title="Click for meal details"
               >
                 <img
                   src={meal.strMealThumb}
