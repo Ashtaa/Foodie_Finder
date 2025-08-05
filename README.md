@@ -15,8 +15,7 @@ Foodie Finder is a React-based web application that lets users explore different
 
 ![My Image](images/image.png)
 
-https://foodefinder.vercel.app/
-
+https://foodfinder-alpha.vercel.app/
 ## Installation
 
 1. Clone the repository:  
