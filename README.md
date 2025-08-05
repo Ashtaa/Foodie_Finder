@@ -49,4 +49,4 @@ Data is fetched from [TheMealDB](https://www.themealdb.com/api.php) public API.
 
 ---
 
-**Made with ❤️ by Ashtaa,nahom,Zufan
+**Made with ❤️ by ashenfi,nahom,Zufan
