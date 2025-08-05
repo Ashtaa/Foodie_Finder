@@ -12,7 +12,7 @@ const Hero = () => {
 
   <svg viewBox="0 0 800 800" className="w-full h-full">
     <path
-      fill="#ff6600ff"
+      fill=" #FFA500"
       d="M000,0 C600,100 400,600 800,900 L900,0 Z"
     />
   </svg>
@@ -21,13 +21,13 @@ const Hero = () => {
       <div className="md:w-1/2 space-y-6 z-10 text-center md:text-left">
 
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900">
-          Discover <span className="text-orange-500">Delicious</span> Meals from Around the World
+          Discover <span className="text-[#FFA500]">Delicious</span> Meals from Around the World
         </h1>
         <p className="text-gray-600 mt-4">
   Explore recipes by ingredient, cuisine, or category using Foodie Finder — your gateway to global flavors. Browse cooking instructions, related dishes, and more with a sleek, easy-to-use interface.
 </p>
 
-        <button className="mt-4 px-6 py-3 bg-orange-500 text-white font-semibold rounded-full shadow-lg hover:bg-orange-600">
+        <button className="mt-4 px-6 py-3  bg-[#FFA500] text-white font-semibold rounded-full shadow-lg hover:bg-orange-600">
           Explore More
         </button>
       </div>

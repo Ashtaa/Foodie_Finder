@@ -25,7 +25,7 @@ function SearchBar() {
       />
       <button
         type="submit"
-        className="px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
+        className="px-4 py-2 bg-[#FFA500] text-white rounded-lg hover:bg-orange-600 transition"
       >
         Search
       </button>

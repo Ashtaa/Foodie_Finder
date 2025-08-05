@@ -12,8 +12,8 @@ function Header() {
   return (
     <header className="relative bg-white shadow z-10 overflow-hidden">
 
-      <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 py-4 relative z-10">
-        <div className="flex items-center gap-4">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4 relative z-10">
+        <div className="flex items-center gap-7">
           <img
             src={Logo}
             alt="Logo"
@@ -30,10 +30,24 @@ function Header() {
           <li className="cursor-pointer hover:text-orange-500">
             <Link to="/about">About Us</Link>
           </li>
+      
+
         </ul>
         <div className="hidden md:block">
           <SearchBar />
         </div>
+        <div className="flex gap-4">
+          <button className="px-4 py-2 cursor-pointer text-white border bg-[#FFA500]  border-[#FFA500] rounded-lg">
+          Sign up
+
+        </button>
+        <button className="px-4 py-2 cursor-pointer hover:text-orange-500 border border-[#FFA500] rounded-lg">
+          Login
+
+        </button>
+        </div>
+        
+
 
         <button
           className="md:hidden text-gray-800 focus:outline-none"
