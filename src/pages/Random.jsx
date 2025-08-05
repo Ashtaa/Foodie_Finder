@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MealDetail from './MealDetail'; // import your detail component
 
 function Random() {
@@ -20,7 +20,12 @@ function Random() {
       });
   };
 
-  // If a meal is selected, show MealDetail component instead of the list
+  // Automatically generate a meal on first render
+  useEffect(() => {
+    generate();
+  }, []);
+
+  // Show meal detail if selected
   if (selectedMealId) {
     return (
       <MealDetail 

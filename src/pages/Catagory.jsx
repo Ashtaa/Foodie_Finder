@@ -7,27 +7,31 @@ function Catagory() {
   const [categories, setCategories] = useState([]);
   const [meals, setMeals] = useState([]);
   const [showAll, setShowAll] = useState(false);
+  const [showAllMeals, setShowAllMeals] = useState(false); // <-- New state
   const { name } = useParams();
   const navigate = useNavigate();
   const [selectedMealId, setSelectedMealId] = useState(null);
 
+  // Fetch categories
   useEffect(() => {
     axios.get("https://www.themealdb.com/api/json/v1/1/categories.php")
       .then((res) => setCategories(res.data.categories))
       .catch((err) => console.log(err));
   }, []);
 
+  // Fetch meals by category
   useEffect(() => {
     if (name) {
       axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`)
         .then((res) => setMeals(res.data.meals))
         .catch((err) => console.log(err));
+      setShowAllMeals(false); // reset on category change
     } else {
       setMeals([]);
     }
   }, [name]);
 
-  // Show meal detail
+  // Show meal detail page
   if (selectedMealId) {
     return (
       <div className="p-10 bg-white min-h-screen">
@@ -68,7 +72,7 @@ function Catagory() {
             ))}
           </div>
 
-          {/* Toggle Button */}
+          {/* View all categories */}
           {!showAll && (
             <div className="mt-6 text-center">
               <button
@@ -82,19 +86,14 @@ function Catagory() {
         </>
       ) : (
         <>
-          <button
-            onClick={() => navigate('/catagory')}
-            className="mb-6 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
-          >
-            ⬅ Back to Categories
-          </button>
+         
 
           <h1 className="text-3xl font-bold text-gray-900 mb-8">
             Meals in <span className="text-orange-500">{name}</span>
           </h1>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {meals.map((meal) => (
+            {(showAllMeals ? meals : meals.slice(0, 4)).map((meal) => (
               <div
                 key={meal.idMeal}
                 onClick={() => setSelectedMealId(meal.idMeal)}
@@ -109,6 +108,18 @@ function Catagory() {
               </div>
             ))}
           </div>
+
+          {/* View all meals */}
+          {!showAllMeals && meals.length > 4 && (
+            <div className="mt-6 text-center">
+              <button
+                onClick={() => setShowAllMeals(true)}
+                className="px-6 py-3 bg-orange-500 text-white font-medium rounded-full hover:bg-orange-600 transition"
+              >
+                View All Meals
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>
