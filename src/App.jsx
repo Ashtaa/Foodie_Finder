@@ -7,7 +7,7 @@ import Random from './pages/Random';
 import Header from './components/Header';
 import SearchedResult from './pages/SearchedResult';
 import Footer from './components/Footer';
-import About from './pages/About';
+
 
 function App() {
   return (
@@ -20,7 +20,6 @@ function App() {
         <Route path="/catagory/:name" element={<Catagory />} />
         <Route path="/meal/:id" element={<MealDetail />} />
         <Route path="/random" element={<Random />} />
-        <Route path="/about" element={<About/>}/>
       </Routes>
       <Footer/>
     </>

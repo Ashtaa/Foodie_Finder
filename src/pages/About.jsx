@@ -7,7 +7,7 @@ function About() {
     <div className="min-h-screen bg-[#FFF9F2] text-gray-900">
       {/* Header */}
       <div className="bg-[#FFA500] text-white py-16 text-center relative">
-        <h1 className="text-4xl font-bold">About <span className="text-[#FFD54F]">Foodie Finder</span></h1>
+        <h1 className="text-4xl font-bold">About <span className="text-[#FFFF00] font-extrabold drop-shadow-md">Foodie Finder</span></h1>
         <p className="mt-4 text-lg">We Serve Delicious Food & Recipes For Everyone!</p>
         <div className="absolute bottom-0 left-0 right-0 h-4 bg-white rounded-t-full"></div>
       </div>
