@@ -1,5 +1,6 @@
 import React from 'react';
-import pastaImage from '../assets/pasta.jpg';
+import pastaImage from '../assets/Fruits.png';
+import HeroPg from "../assets/HeroBg.png"
 
 
 
@@ -9,13 +10,7 @@ const Hero = () => {
     <section className="relative overflow-hidden bg-white min-h-screen  md:px-20 py-10 flex flex-col-reverse md:flex-row items-center justify-between">
       
       <div className="absolute top-0 right-0 w-[50%] md:w-[50%] h-full z-0">
-
-  <svg viewBox="0 0 800 800" className="w-full h-full">
-    <path
-      fill=" #FFA500"
-      d="M000,0 C600,100 400,600 800,900 L900,0 Z"
-    />
-  </svg>
+        <img src={HeroPg} alt="background png" />
 </div>
 
       <div className="md:w-1/2 space-y-6 z-10 text-center md:text-left">

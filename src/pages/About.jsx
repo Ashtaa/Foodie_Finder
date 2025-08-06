@@ -49,7 +49,7 @@ function About() {
             </div>
             <div className="p-6 bg-[#FFF9F2] rounded-xl shadow hover:shadow-lg transition">
               <h3 className="font-bold text-xl text-[#FFA500]">Fast & Easy</h3>
-              <p className="text-gray-600 mt-2">Simple steps to prepare meals quickly without compromising on taste and quality.</p>
+              <p className="c mt-2">Simple steps to prepare meals quickly without compromising on taste and quality.</p>
             </div>
           </div>
         </div>
